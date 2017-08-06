@@ -75,6 +75,37 @@ public class FornecedoresDAO {
 		return retorno;
 
 	}
+	public ArrayList<Fornecedores>buscarPorDescricao(Fornecedores f) throws SQLException{
+		
+
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT codigo, descricao ");
+		sql.append("FROM fornecedores ");
+		sql.append("WHERE descricao LIKE ? ");
+		sql.append("ORDER BY descricao ASC ");
+		
+		Connection conexao = ConexaoFactory.conectar();
+		PreparedStatement comando = conexao.prepareStatement(sql.toString());
+		comando.setString(1,"%" + f.getDescricao() + "%");
+	
+		ResultSet resultado = comando.executeQuery();
+
+		ArrayList<Fornecedores> lista = new ArrayList<Fornecedores>();
+
+		while (resultado.next()) {
+			Fornecedores item = new Fornecedores();
+			item.setCodigo(resultado.getLong("codigo"));
+			item.setDescricao(resultado.getString("descricao"));
+
+			lista.add(item);
+		}
+		return lista;
+		
+		
+	}
+	
+	
+	
 
 	public ArrayList<Fornecedores> listar() throws SQLException {
 
@@ -164,7 +195,7 @@ public class FornecedoresDAO {
 		 * }
 		 */
 
-		FornecedoresDAO fdao = new FornecedoresDAO();
+		/*FornecedoresDAO fdao = new FornecedoresDAO();
 
 		try {
 
@@ -175,7 +206,24 @@ public class FornecedoresDAO {
 		} catch (SQLException e) {
 			System.out.println("Erro ao Buscar!");
 			e.printStackTrace();
+		}*/
+		
+		
+		Fornecedores f1 = new Fornecedores();
+		f1.setDescricao("Tria");
+		FornecedoresDAO fdao = new FornecedoresDAO();
+		
+		try {
+
+			ArrayList<Fornecedores> lista = fdao.buscarPorDescricao(f1);
+			for (Fornecedores f : lista) {
+				System.out.println("Resultado " + f);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao Buscar!");
+			e.printStackTrace();
 		}
 	}
+
 
 }
