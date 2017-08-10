@@ -1,5 +1,6 @@
 package br.com.farmacia.bean;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +15,16 @@ import br.com.farmacia.domain.Fornecedores;
 @ViewScoped
 public class FornecedoresBean {
 
+	private Fornecedores fornecedores;
+
+	public Fornecedores getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(Fornecedores fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+
 	private ListDataModel<Fornecedores> itens;
 
 	public ListDataModel<Fornecedores> getItens() {
@@ -23,6 +34,7 @@ public class FornecedoresBean {
 	public void setItens(ListDataModel<Fornecedores> itens) {
 		this.itens = itens;
 	}
+
 	@PostConstruct
 	public void prepararPesquisa() {
 
@@ -31,6 +43,21 @@ public class FornecedoresBean {
 			ArrayList<Fornecedores> lista = fdao.listar();
 			itens = new ListDataModel<Fornecedores>(lista);
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void prepararNovo(){
+		fornecedores = new Fornecedores();
+	}
+
+	public void novo() {
+
+		try {
+			FornecedoresDAO fdao = new FornecedoresDAO();
+			fdao.salvar(fornecedores);
+		} catch (SQLException e) {
+
 			e.printStackTrace();
 		}
 	}
