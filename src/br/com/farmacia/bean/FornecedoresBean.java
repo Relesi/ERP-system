@@ -85,7 +85,30 @@ public class FornecedoresBean {
 			JSFUtil.adcicionarMensagemSucesso("Forncedor excluido com sucesso");
 			
 		} catch (SQLException e) {
-			JSFUtil.adcicionarMensagemErro("Não é possível excluir um fornecedor que tenha um produto associado");
+			JSFUtil.adcicionarMensagemErro("Não é possível excluir um fornecedor que tenha um produto associado!");
+			e.printStackTrace();
+		}
+	}
+
+	//Metodos Editar
+	
+	public void prepararEditar(){
+		fornecedores = itens.getRowData();
+	}
+	
+	public void editar(){
+		
+		try {
+			FornecedoresDAO fdao = new FornecedoresDAO();
+			fdao.editar(fornecedores);			
+		
+			ArrayList<Fornecedores> lista = fdao.listar();
+			itens = new ListDataModel<Fornecedores>(lista);
+			
+			JSFUtil.adcicionarMensagemSucesso("Forncedor editado com sucesso");
+			
+		} catch (SQLException e) {
+			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
 			e.printStackTrace();
 		}
 	}
