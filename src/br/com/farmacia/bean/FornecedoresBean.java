@@ -46,8 +46,8 @@ public class FornecedoresBean {
 			e.printStackTrace();
 		}
 	}
-	
-	public void prepararNovo(){
+
+	public void prepararNovo() {
 		fornecedores = new Fornecedores();
 	}
 
