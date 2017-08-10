@@ -16,7 +16,7 @@
 		<h:form id="frmfornecedores">
 			<p:dataTable id="tbfornecedores"
 				emptyMessage="Nenhum registro encontrado!"
-				value="#{MBFornecedores.itens}" var="item" paginator="true" rows="8">
+				value="#{MBFornecedores.itens}" var="item" paginator="true" rows="7">
 
 				<f:facet name="header">Lista de Fornecedores</f:facet>
 
@@ -30,6 +30,10 @@
 				<p:column headerText="Descrição" sortBy="#{item.descricao}"
 					filterBy="#{item.descricao}">
 					<h:outputText value="#{item.descricao}" />
+				</p:column>
+				
+				<p:column headerText="Opções" >
+					<p:commandButton icon="ui-icon-trash"/>
 				</p:column>
 
 				<f:facet name="footer">
