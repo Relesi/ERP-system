@@ -56,6 +56,10 @@ public class FornecedoresBean {
 		try {
 			FornecedoresDAO fdao = new FornecedoresDAO();
 			fdao.salvar(fornecedores);
+			
+			//FornecedoresDAO dao = new FornecedoresDAO();
+			ArrayList<Fornecedores> lista = fdao.listar();
+			itens = new ListDataModel<Fornecedores>(lista);
 		} catch (SQLException e) {
 
 			e.printStackTrace();
