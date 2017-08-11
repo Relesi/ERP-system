@@ -29,7 +29,7 @@ public class ProdutoDAO {
 		comando.executeUpdate();
 	}
 
-	public ArrayList<Produtos> listar()throws SQLException {
+	public ArrayList<Produtos> listar() throws SQLException {
 
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT p.codigo, p.descricao, p.quantidade, p.preco, f.codigo, f.descricao ");
@@ -59,5 +59,17 @@ public class ProdutoDAO {
 			lista.add(p);
 		}
 		return lista;
+	}
+
+	public void excluir(Produtos p) throws SQLException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("DELETE FROM produtos ");
+		sql.append("WHERE codigo = ? ");
+
+		Connection conexao = ConexaoFactory.conectar();
+
+		PreparedStatement comando = conexao.prepareStatement(sql.toString());
+		comando.setLong(1, p.getCodigo());
+		comando.executeUpdate();
 	}
 }

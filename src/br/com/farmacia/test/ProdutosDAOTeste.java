@@ -12,7 +12,8 @@ import br.com.farmacia.domain.Produtos;
 
 public class ProdutosDAOTeste {
 
-	
+	@Test
+	@Ignore
 	public void salvar() throws SQLException {
 
 		Produtos p1 = new Produtos();
@@ -31,6 +32,7 @@ public class ProdutosDAOTeste {
 
 
 	@Test
+	@Ignore
 	public void listar() throws SQLException {
 
 		
@@ -49,7 +51,18 @@ public class ProdutosDAOTeste {
 
 			
 		}
-	
+		
+		
 	}
+	@Test
+	public void excluir() throws SQLException {
+		
+		Produtos p = new Produtos();
+		p.setCodigo(3L);
+		
+		ProdutoDAO dao = new ProdutoDAO();
+		dao.excluir(p);
+	}
+
 
 }
