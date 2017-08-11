@@ -29,10 +29,10 @@ public class ProdutoDAO {
 		comando.executeUpdate();
 	}
 
-	public ArrayList<Produtos> listar() throws SQLException {
+	public ArrayList<Produtos> listar()throws SQLException {
 
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT p.codigo, p.descricao, p.quantidade, p.preco, f,codigo, f.descricao ");
+		sql.append("SELECT p.codigo, p.descricao, p.quantidade, p.preco, f.codigo, f.descricao ");
 		sql.append("FROM produtos p ");
 		sql.append("INNER JOIN fornecedores f ON f.codigo = p.fornecedores_codigo ");
 
