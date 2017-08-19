@@ -1,5 +1,6 @@
 package br.com.farmacia.bean;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -19,8 +20,8 @@ public class ProdutoBean {
 	private Produtos produtos;
 	private ArrayList<Produtos> itens;
 	private ArrayList<Produtos> itensFiltrados;
-	private ArrayList<Fornecedores>comboFornecedores;
-	
+	private ArrayList<Fornecedores> comboFornecedores;
+
 	public ArrayList<Fornecedores> getComboFornecedores() {
 		return comboFornecedores;
 	}
@@ -29,12 +30,14 @@ public class ProdutoBean {
 		this.comboFornecedores = comboFornecedores;
 	}
 
-    public Produtos getProdutos() {
+	public Produtos getProdutos() {
 		return produtos;
 	}
-    public void setProdutos(Produtos produtos) {
+
+	public void setProdutos(Produtos produtos) {
 		this.produtos = produtos;
 	}
+
 	public ArrayList<Produtos> getItens() {
 		return itens;
 	}
@@ -55,7 +58,7 @@ public class ProdutoBean {
 	public void prepararPesquisa() {
 
 		try {
-		ProdutoDAO fdao = new ProdutoDAO();
+			ProdutoDAO fdao = new ProdutoDAO();
 			itens = fdao.listar();
 		} catch (Exception e) {
 			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
@@ -63,4 +66,16 @@ public class ProdutoBean {
 		}
 
 	}
+
+	public void prepararNovo() {
+		try {
+			produtos = new Produtos();
+			FornecedoresDAO dao = new FornecedoresDAO();
+			comboFornecedores = dao.listar();
+		} catch (SQLException e) {
+			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
+			e.printStackTrace();
+		}
+	}
+
 }
