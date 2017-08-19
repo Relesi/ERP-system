@@ -76,9 +76,17 @@
 			appendTo="@(body)">
 			<h:form id="frmproNovo">
 				<h:panelGrid id="pnproNovo" columns="2">
+				
 					<p:outputLabel value="Descrição:" />
-					<h:inputText size="30" maxlength="50"/>
-						<!-- value="#{MBProduto.produtos.descricao}" /> -->
+					<h:inputText size="30" maxlength="50" value="#{MBProduto.produtos.descricao}"/>
+					
+					<p:outputLabel value="Preço:" />
+					<h:inputText size="30" maxlength="50" value="#{MBProduto.produtos.preco}"/>
+					
+					<p:outputLabel value="Quantidade:" />
+					<h:inputText size="30" maxlength="50" value="#{MBProduto.produtos.quantidade}"/>
+					
+											
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
