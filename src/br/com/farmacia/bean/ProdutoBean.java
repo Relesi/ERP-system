@@ -77,5 +77,19 @@ public class ProdutoBean {
 			e.printStackTrace();
 		}
 	}
+	public void novo() {
+
+		try {
+			ProdutoDAO fdao = new ProdutoDAO();
+			fdao.salvar(produtos);
+
+			itens = fdao.listar();
+
+			JSFUtil.adcicionarMensagemSucesso("Produto salvo com sucesso");
+		} catch (SQLException e) {
+			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
+			e.printStackTrace();
+		}
+	}
 
 }
