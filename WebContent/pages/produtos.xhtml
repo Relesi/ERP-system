@@ -108,6 +108,8 @@
 					<p:selectOneMenu value="#{MBProduto.produtos.fornecedores.codigo}"
 						filter="true" required="true"
 						requiredMessage="O campo Fornecedor é obrigatório.">
+						
+						
 						<f:selectItem itemValue="" itemLabel="Selecione um Fornecedor" />
 						<f:selectItems value="#{MBProduto.comboFornecedores}" var="item"
 							itemValue="#{item.codigo}" itemLabel="#{item.descricao}">

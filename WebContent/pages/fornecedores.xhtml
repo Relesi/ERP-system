@@ -66,9 +66,10 @@
 			appendTo="@(body)">
 			<h:form id="frmforNovo">
 				<h:panelGrid id="pnforNovo" columns="2">
-					<p:outputLabel value="Descrição:" />
-					<h:inputText size="30" maxlength="50"
-						value="#{MBFornecedores.fornecedores.descricao}"  required="true" requiredMessage="O campo descrição é obrigatório"/>
+					<p:outputLabel value="Descrição:" for="txtDescNovo" />
+					<h:inputText size="30" maxlength="50" id="txtDescNovo"
+						value="#{MBFornecedores.fornecedores.descricao}"  required="true"
+						 requiredMessage="O campo descrição é obrigatório"/>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
@@ -121,15 +122,17 @@
 					<h:outputText value="Código" />
 					<h:outputText value="#{MBFornecedores.fornecedores.codigo}" />
 
-					<h:outputText value="Descrição" />
-					<h:inputText value="#{MBFornecedores.fornecedores.descricao}" />
+					<h:outputText value="Descrição" for="txtEdtfor" />
+					<h:inputText value="#{MBFornecedores.fornecedores.descricao}"
+					 required="true" id="txtEdtfor"
+						 requiredMessage="O campo descrição é obrigatório" />
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 
 					<p:commandButton value="Editar"
 						actionListener="#{MBFornecedores.editar}"
-						oncomplete="PF('dlgforEditar').hide(); PF('tabelaFornecedores').clearFilters();"
+						oncomplete="verificar(xhr, status, args, 'dlgforEditar', 'tbfornecedores' ); "
 						update=":frmfornecedores:tbfornecedores :msgGlobal" />
 					<p:commandButton value="Cancelar"
 						onclick="PF('dlgforEditar').hide();" />
