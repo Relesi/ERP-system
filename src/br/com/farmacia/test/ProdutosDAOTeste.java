@@ -55,6 +55,7 @@ public class ProdutosDAOTeste {
 		
 	}
 	@Test
+	@Ignore
 	public void excluir() throws SQLException {
 		
 		Produtos p = new Produtos();
@@ -63,6 +64,26 @@ public class ProdutosDAOTeste {
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.excluir(p);
 	}
+	
+	@Test	
+	public void editar()throws SQLException {
+		Produtos p = new Produtos();
+		p.setCodigo(5L);
+		p.setDescricao("Lisadores_rls");
+		p.setPreco(16.75);
+		p.setQuantidade(20L);
+		
+		Fornecedores f = new Fornecedores();
+		f.setCodigo(10);
+		p.setFornecedores(f);
+		
+		ProdutoDAO dao = new ProdutoDAO();
+		dao.editar(p);
+		
+		
+		
+	}
+
 
 
 }
