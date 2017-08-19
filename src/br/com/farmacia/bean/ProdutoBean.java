@@ -19,7 +19,15 @@ public class ProdutoBean {
 	private Produtos produtos;
 	private ArrayList<Produtos> itens;
 	private ArrayList<Produtos> itensFiltrados;
+	private ArrayList<Fornecedores>comboFornecedores;
+	
+	public ArrayList<Fornecedores> getComboFornecedores() {
+		return comboFornecedores;
+	}
 
+	public void setComboFornecedores(ArrayList<Fornecedores> comboFornecedores) {
+		this.comboFornecedores = comboFornecedores;
+	}
 
     public Produtos getProdutos() {
 		return produtos;
