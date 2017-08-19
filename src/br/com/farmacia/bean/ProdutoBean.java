@@ -91,5 +91,22 @@ public class ProdutoBean {
 			e.printStackTrace();
 		}
 	}
+	
+	public void excluir() {
+
+		try {
+			ProdutoDAO fdao = new ProdutoDAO();
+			fdao.excluir(produtos);
+
+			itens = fdao.listar();
+
+			JSFUtil.adcicionarMensagemSucesso("Profuto excluido com sucesso!");
+
+		} catch (SQLException e) {
+			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
+			e.printStackTrace();
+		}
+	}
+
 
 }
