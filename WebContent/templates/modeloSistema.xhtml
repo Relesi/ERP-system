@@ -3,30 +3,33 @@
 <html 
 xmlns="http://www.w3.org/1999/xhtml"
 xmlns:h="http://java.sun.com/jsf/html"
-xmlns:c="http://java.sun.com/jsf/core"
+xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.org/ui"
 xmlns:ui="http://java.sun.com/jsf/facelets"
 
 >
+
+
 <h:head>
 
-<h:outputStylesheet library="css" name="style.css"/>
-<h:outputScript library="js" name="scripts.js"/>
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputScript library="js" name="scripts.js" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Layout Sistemas</title>
+<title>Layout Sistema</title>
 </h:head>
 <h:body>
 
-<p:growl id="msgGlobal" life="3000"/>
+<p:growl id="msgGlobal" life="4000" />
 
 <p:layout fullPage="true">
 
     <p:layoutUnit position="north" >
-      <ui:insert name="menu"/>
+       <ui:insert name="menu" />
     </p:layoutUnit>
  
     <p:layoutUnit position="center">
-       <ui:insert name="conteudo"/>
+         <ui:insert name="conteudo" />
     </p:layoutUnit>
 </p:layout>
 
