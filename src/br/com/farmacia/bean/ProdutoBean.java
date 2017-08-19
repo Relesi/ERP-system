@@ -107,6 +107,22 @@ public class ProdutoBean {
 			e.printStackTrace();
 		}
 	}
+	
+	public void editar() {
+
+		try {
+			ProdutoDAO fdao = new ProdutoDAO();
+			fdao.editar(produtos);
+
+			itens = fdao.listar();
+
+			JSFUtil.adcicionarMensagemSucesso("Produto editado com sucesso");
+
+		} catch (SQLException e) {
+			JSFUtil.adcicionarMensagemErro("ex.getMessage()");
+			e.printStackTrace();
+		}
+	}
 
 
 }
