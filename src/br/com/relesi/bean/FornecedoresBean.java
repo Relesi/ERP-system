@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import br.com.relesi.DAO.FornecedoresDAO;
 import br.com.relesi.domain.Fornecedores;
